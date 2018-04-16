@@ -1,0 +1,12 @@
+Package: GSmeta
+Title: Various meta-analysis methods with main applications to genetic studies
+Version: 0.1.0
+Imports: mvtnorm
+Description: This package implements various useful methods for meta-analysis with main applications to GWAS.
+Depends:
+    R (>= 3.0.0)
+License: GPL (>= 2)
+LazyData: true
+Author: Baolin Wu [aut, cre]
+Maintainer: Baolin Wu <baolin@umn.edu>
+RoxygenNote: 6.0.1
