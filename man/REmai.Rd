@@ -30,7 +30,7 @@ Lin,D.Y. and Sullivan,P.F. (2009) Meta-Analysis of Genome-wide Association Studi
 
 Han,B. and Eskin,E. (2011) Random-Effects Model Aimed at Discovering Associations in Meta-Analysis of Genome-wide Association Studies. The American Journal of Human Genetics 88, 586–598.
 
-Lee,C.H., Eskin,E., Han,B. (2017) Increasing the power of meta-analysis of genome-wide association studies to detect heterogeneous effects. Bioinformatics 33, i379–i388. 
+Lee,C.H., Eskin,E., Han,B. (2017) Increasing the power of meta-analysis of genome-wide association studies to detect heterogeneous effects. Bioinformatics 33, i379–i388.
 
-Wu,B. (2018) On random effects modeling for meta-analysis of genome-wide associations studies.
+Wu,B. and Zhao,H. (2018) Powerful random effects modeling for meta-analysis of genome-wide association studies.
 }
