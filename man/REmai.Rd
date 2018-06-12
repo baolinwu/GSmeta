@@ -11,7 +11,7 @@ REmai(betas, Vb, B = 2500)
 
 \item{Vb}{variances of individual effect size estimates}
 
-\item{B}{number of Monte Carlo samples to estimate the null distribution. Default to 2500. See Wu (2018) reference.}
+\item{B}{number of Monte Carlo samples to estimate the null distribution. Default to 2500. See Wu and Zhao (2018) reference.}
 }
 \value{
 \describe{

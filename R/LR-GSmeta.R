@@ -92,12 +92,12 @@ FEma <- function(betas, stders, sigma=NULL){
 #'
 #' @param betas   effect size estimates from K studies
 #' @param Vb      covariance matrix of effect size estimates
-#' @param B       number of Monte Carlo samples to estimate the null distribution. Default to 2500. See Wu (2018) reference.
+#' @param B       number of Monte Carlo samples to estimate the null distribution. Default to 2500. See Wu and Zhao (2018) reference.
 #' @return
 #' \describe{
-#'  \item{p.value}{ p-values for FE, RE, RE conditional on FE }
+#'  \item{p.value}{ p-values for FE (Pf), RE (Pr), RE conditional on FE (Pc) }
 #'  \item{theta}{ proportion parameter in the chi-square mixture dist }
-#'  \item{Q}{ LRT statistics for the FE and RE }
+#'  \item{Q}{ LRT statistics for the FE (Qf) and RE (Qr) }
 #'  \item{pars}{ estimated parameters (muf,mu,tau2) for FE mean, RE mean/variance parameters  }
 #' }
 #' @export
@@ -109,6 +109,13 @@ FEma <- function(betas, stders, sigma=NULL){
 #' Lee,C.H., Eskin,E., Han,B. (2017) Increasing the power of meta-analysis of genome-wide association studies to detect heterogeneous effects. Bioinformatics 33, i379–i388.
 #'
 #' Wu,B. and Zhao,H. (2018) Powerful random effects modeling for meta-analysis of genome-wide association studies.
+#' @examples
+#' K = 5; rho = 0.2
+#' V = diag(K)*(1-rho) + rho
+#' U0 = rnorm(K)*sqrt(1-rho) + rnorm(1)*sqrt(rho)
+#' U1 = U0 + rnorm(K)*1.2
+#' REma(U0,V)
+#' REma(U1,V)
 REma <- function(betas, Vb, B=2500){
   es = eigen(Vb, sym=TRUE); U = es$vec
   UX = colSums(U*betas); U1 = colSums(U); D = es$val
@@ -132,7 +139,7 @@ REma <- function(betas, Vb, B=2500){
 #'
 #' @param betas   effect size estimates from K studies
 #' @param Vb      variances of individual effect size estimates
-#' @param B       number of Monte Carlo samples to estimate the null distribution. Default to 2500. See Wu (2018) reference.
+#' @param B       number of Monte Carlo samples to estimate the null distribution. Default to 2500. See Wu and Zhao (2018) reference.
 #' @return
 #' \describe{
 #'  \item{p.value}{ p-values for FE, RE, RE conditional on FE }

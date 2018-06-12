@@ -11,19 +11,27 @@ REma(betas, Vb, B = 2500)
 
 \item{Vb}{covariance matrix of effect size estimates}
 
-\item{B}{number of Monte Carlo samples to estimate the null distribution. Default to 2500. See Wu (2018) reference.}
+\item{B}{number of Monte Carlo samples to estimate the null distribution. Default to 2500. See Wu and Zhao (2018) reference.}
 }
 \value{
 \describe{
- \item{p.value}{ p-values for FE, RE, RE conditional on FE }
+ \item{p.value}{ p-values for FE (Pf), RE (Pr), RE conditional on FE (Pc) }
  \item{theta}{ proportion parameter in the chi-square mixture dist }
- \item{Q}{ LRT statistics for the FE and RE }
+ \item{Q}{ LRT statistics for the FE (Qf) and RE (Qr) }
  \item{pars}{ estimated parameters (muf,mu,tau2) for FE mean, RE mean/variance parameters  }
 }
 }
 \description{
 Under RE MA, we assume heterogeneous effect sizes across all studies. This is potentially relevant
 when meta-analyzing cross-disease GWAS with overlapped samples.
+}
+\examples{
+K = 5; rho = 0.2
+V = diag(K)*(1-rho) + rho
+U0 = rnorm(K)*sqrt(1-rho) + rnorm(1)*sqrt(rho)
+U1 = U0 + rnorm(K)*1.2
+REma(U0,V)
+REma(U1,V)
 }
 \references{
 Lin,D.Y. and Sullivan,P.F. (2009) Meta-Analysis of Genome-wide Association Studies with Overlapping Subjects. Am J Hum Genet 85, 862–872.
